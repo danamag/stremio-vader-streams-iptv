@@ -163,7 +163,7 @@ function runAddon() {
 			cb(null, null)
 	})
 
-	addon.runHTTPWithOptions({ port: 7000 })
+	addon.runHTTPWithOptions({ port: 7025 })
 
 }
 
