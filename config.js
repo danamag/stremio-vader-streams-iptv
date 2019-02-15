@@ -13,7 +13,19 @@ const defaultConfig = {
 	"username": "",
 
 	"// password": [["// add Vader Streams IPTV password (between quotes)"]],
-	"password": ""
+	"password": "",
+
+	"// addonPort": [["// port to use for stremio add-on, default is 7010"]],
+	"addonPort": 7025,
+
+	"// autoLaunch": [["// if this is set to true, the add-on will run on system start-up"]],
+	"autoLaunch": false,
+
+	"// remote": [["// make add-on available remotely too, through LAN and the Internet"]],
+	"remote": false,
+
+	"// subdomain": [["// set the preferred subdomain (if available), only applicable if remote is set to true"]],
+	"subdomain": false
 
 }
 
