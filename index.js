@@ -96,7 +96,7 @@ const runAddon = async () => {
 
 	const addon = new addonSDK({
 		id: 'org.vaderstv',
-		version: '1.0.0',
+		version: '1.0.1',
 		name: 'Vader Streams IPTV',
 		description: 'IPTV Service - Requires Subscription',
 		resources: ['stream', 'meta', 'catalog'],
