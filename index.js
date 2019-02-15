@@ -3,6 +3,8 @@ const needle = require('needle')
 const async = require('async')
 const addonSDK = require('stremio-addon-sdk')
 
+const tunnel = require('./tunnel')
+
 let loginExpire = 0
 
 const config = require('./config')
@@ -14,6 +16,10 @@ if (!username || !password) {
 	console.log('Username or password unavailable. Please edit "config.json" (in the same folder) and add Vader Streams IPTV user and password then run this application again.')
 	process.exit()
 }
+
+const autoLaunch = require('./autoLaunch')
+
+autoLaunch('Vaders IPTV Add-on', config.autoLaunch)
 
 let categories = []
 const catalogs = []
@@ -86,7 +92,7 @@ function toMeta(chan) {
 	return chan
 }
 
-function runAddon() {
+const runAddon = async () => {
 
 	const addon = new addonSDK({
 		id: 'org.vaderstv',
@@ -163,7 +169,21 @@ function runAddon() {
 			cb(null, null)
 	})
 
-	addon.runHTTPWithOptions({ port: 7025 })
+	config.addonPort = await getPort({ port: config.addonPort })
+
+	addon.runHTTPWithOptions({ port: config.addonPort })
+
+	if (config.remote) {
+
+		const remoteOpts = {}
+
+		if (config.subdomain)
+			remoteOpts.subdomain = config.subdomain
+
+		
+		tunnel(config.addonPort, remoteOpts)
+		 
+	}
 
 }
 
