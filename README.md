@@ -17,9 +17,10 @@ Open `config.json` (in the same folder), add username and password where you see
 
 Run Add-on again. It will print a link: `http://127.0.0.1:7025/manifest.json`
 
+Note: in the same `config.json` file, you also have setting to turn on `autoLaunch` (which will launch this add-on on system start-up), turn on `remote` (which will create a https url that can be used through LAN or the Internet) and set up a `subdomain` (which can be any unique string that will make the remote https url always be the same instead of a random url)
 
 ### Add Vader Streams IPTV Add-on to Stremio
 
-Add `http://127.0.0.1:7025/manifest.jsonn` as an Add-on URL in Stremio.
+Add `http://127.0.0.1:7025/manifest.json` as an Add-on URL in Stremio.
 
 ![addlink](https://user-images.githubusercontent.com/1777923/43146711-65a33ccc-8f6a-11e8-978e-4c69640e63e3.png)
